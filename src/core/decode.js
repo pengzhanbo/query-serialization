@@ -3,7 +3,7 @@ export default function decode(query, option, rule, lasted) {
     option = option || [];
     let result = {};
     Object.keys(query).forEach(key => {
-        let index = option.map(opt => opt.alias).indexOf(key);
+        let index = option.map(opt => opt.alias || opt.key).indexOf(key);
         // 参数未配置规则，不处理
         if (index === -1) {
             lasted && (result[key] = query[key]);
